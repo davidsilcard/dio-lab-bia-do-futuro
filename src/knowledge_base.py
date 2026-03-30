@@ -77,8 +77,6 @@ class KnowledgeBase:
         accepted_risks = {"baixo"}
         if self.profile["perfil_investidor"] == "moderado" and self.profile["aceita_risco"]:
             accepted_risks.add("medio")
-        elif self.profile["perfil_investidor"] == "moderado":
-            accepted_risks.add("medio")
 
         goal_text = self.profile["objetivo_principal"].lower()
         recommendations: list[dict] = []
@@ -89,8 +87,7 @@ class KnowledgeBase:
             if risk not in accepted_risks:
                 continue
             if "reserva" in goal_text and "reserva" not in indication and "seguran" not in indication:
-                if product["nome"] != "Fundo Multimercado":
-                    continue
+                continue
             recommendations.append(product)
 
         if not recommendations:

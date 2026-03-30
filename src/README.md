@@ -23,9 +23,10 @@ python-dotenv
 ## Como Rodar
 
 ```bash
-# Instalar dependências
-pip install -r requirements.txt
+# Criar ambiente e instalar dependências
+uv venv
+uv pip install -r requirements.txt
 
 # Rodar a aplicação
-streamlit run app.py
+uv run streamlit run app.py
 ```

@@ -29,7 +29,7 @@ Adotei duas formas de avaliação:
 
 ### Teste 2: Recomendações compatíveis
 - **Pergunta:** "Qual produto combina com meu perfil?"
-- **Resposta esperada:** Priorizar Tesouro Selic e CDB com liquidez diária; pode citar Fundo Multimercado como opção secundária para perfil moderado
+- **Resposta esperada:** Priorizar Tesouro Selic e CDB com liquidez diária, respeitando o fato de que o cliente não aceita risco
 - **Resultado:** [x] Correto  [ ] Incorreto
 
 ### Teste 3: Pergunta fora do escopo

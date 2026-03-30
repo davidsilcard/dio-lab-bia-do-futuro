@@ -63,7 +63,7 @@ Qual produto combina com meu perfil?
 
 **Agente:**
 ```text
-Como o perfil é moderado e o objetivo principal é 'Construir reserva de emergência', priorizei produtos de menor risco e boa liquidez. Recomendações: Tesouro Selic: risco baixo, aporte mínimo de R$ 30,00, indicado para reserva de emergência e iniciantes. CDB Liquidez Diária: risco baixo, aporte mínimo de R$ 100,00, indicado para quem busca segurança com rendimento diário. Fundo Multimercado: risco medio, aporte mínimo de R$ 500,00, indicado para perfil moderado que busca diversificação.
+Como o perfil é moderado e o objetivo principal é 'Construir reserva de emergência', priorizei produtos de menor risco e boa liquidez. Recomendações: Tesouro Selic: risco baixo, aporte mínimo de R$ 30,00, indicado para reserva de emergência e iniciantes. CDB Liquidez Diária: risco baixo, aporte mínimo de R$ 100,00, indicado para quem busca segurança com rendimento diário.
 ```
 
 ---

@@ -20,9 +20,9 @@ Protótipo de assistente financeiro para o desafio `dio-lab-bia-do-futuro`, com 
 ## Como executar
 
 ```bash
-cd src
-pip install -r requirements.txt
-streamlit run app.py
+uv venv
+uv pip install -r src/requirements.txt
+uv run streamlit run src/app.py
 ```
 
 ## Perguntas para demonstrar

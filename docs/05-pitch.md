@@ -1,44 +1,37 @@
 # Pitch (3 minutos)
 
-> [!TIP]
-> Você pode usar alguns slides pra apoiar no seu Pitch e mostrar sua solução na prática.
- 
 ## Roteiro Sugerido
 
 ### 1. O Problema (30 seg)
-> Qual dor do cliente você resolve?
-
-[Sua descrição aqui]
+Muitos clientes recebem orientação financeira reativa e genérica. Eles perguntam sobre investimento antes mesmo de entender seus gastos, suas metas e o estágio da reserva de emergência. Isso aumenta o risco de decisões ruins e reduz a confiança no atendimento.
 
 ### 2. A Solução (1 min)
-> Como seu agente resolve esse problema?
-
-[Sua descrição aqui]
+A solução é a BIA Futuro, uma assistente financeira inteligente que cruza histórico de transações, perfil do investidor, metas e catálogo de produtos para responder com segurança. Em vez de improvisar, ela usa apenas a base local do cliente fictício e sempre mostra as fontes da resposta. O foco é orientar primeiro a saúde financeira, depois a escolha de produtos compatíveis.
 
 ### 3. Demonstração (1 min)
-> Mostre o agente funcionando (pode ser gravação de tela)
+Na demonstração, eu mostraria três fluxos:
 
-[Descreva o que será mostrado]
+1. consulta de gastos com alimentação, provando que o agente calcula valores reais do CSV;
+2. acompanhamento da reserva de emergência, mostrando quanto falta para atingir a meta;
+3. recomendação de produto, justificando a sugestão com base no perfil moderado e no objetivo do cliente.
+
+Também encerraria com uma pergunta fora do escopo para evidenciar o mecanismo anti-alucinação.
 
 ### 4. Diferencial e Impacto (30 seg)
-> Por que essa solução é inovadora e qual é o impacto dela na sociedade?
-
-[Sua descrição aqui]
+O diferencial está em combinar personalização, prudência e transparência. A BIA Futuro não tenta parecer onisciente: ela explica, justifica e sabe quando não responder. Isso melhora a experiência do cliente, reduz risco de orientação inadequada e cria uma base sólida para evoluir o atendimento financeiro com IA responsável.
 
 ---
 
 ## Checklist do Pitch
 
-- [ ] Duração máxima de 3 minutos
-- [ ] Problema claramente definido
-- [ ] Solução demonstrada na prática
-- [ ] Diferencial explicado
+- [x] Duração máxima de 3 minutos
+- [x] Problema claramente definido
+- [x] Solução demonstrada na prática
+- [x] Diferencial explicado
 - [ ] Áudio e vídeo com boa qualidade
 
 ---
 
 ## Link do Vídeo
 
-> Cole aqui o link do seu pitch (YouTube, Loom, Google Drive, etc.)
-
-[Link do vídeo]
+[Adicionar link após a gravação]

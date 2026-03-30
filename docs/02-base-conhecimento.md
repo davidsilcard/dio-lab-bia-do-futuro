@@ -2,54 +2,49 @@
 
 ## Dados Utilizados
 
-Descreva se usou os arquivos da pasta `data`, por exemplo:
-
 | Arquivo | Formato | Utilização no Agente |
 |---------|---------|---------------------|
-| `historico_atendimento.csv` | CSV | Contextualizar interações anteriores |
-| `perfil_investidor.json` | JSON | Personalizar recomendações |
-| `produtos_financeiros.json` | JSON | Sugerir produtos adequados ao perfil |
-| `transacoes.csv` | CSV | Analisar padrão de gastos do cliente |
-
-> [!TIP]
-> **Quer um dataset mais robusto?** Você pode utilizar datasets públicos do [Hugging Face](https://huggingface.co/datasets) relacionados a finanças, desde que sejam adequados ao contexto do desafio.
+| `historico_atendimento.csv` | CSV | Recuperar temas recentes e contexto de interações anteriores |
+| `perfil_investidor.json` | JSON | Identificar perfil, renda, patrimônio, objetivo principal e metas |
+| `produtos_financeiros.json` | JSON | Filtrar produtos aderentes ao objetivo e ao nível de risco |
+| `transacoes.csv` | CSV | Calcular gastos por categoria, despesas totais e saldo mensal estimado |
 
 ---
 
 ## Adaptações nos Dados
 
-> Você modificou ou expandiu os dados mockados? Descreva aqui.
+Não alterei os arquivos originais do desafio. Em vez disso, centralizei a leitura e o processamento na classe `KnowledgeBase`, que transforma os arquivos em estruturas consultáveis e gera indicadores derivados, como:
 
-[Sua descrição aqui]
+- saldo mensal estimado;
+- ranking de gastos por categoria;
+- valor faltante para completar a reserva de emergência;
+- shortlist de produtos recomendados.
 
 ---
 
 ## Estratégia de Integração
 
 ### Como os dados são carregados?
-> Descreva como seu agente acessa a base de conhecimento.
-
-[ex: Os JSON/CSV são carregados no início da sessão e incluídos no contexto do prompt]
+Os arquivos são carregados localmente no início da aplicação. A classe `KnowledgeBase` lê `JSON` e `CSV` diretamente da pasta `data/`, sem dependência de banco de dados ou API externa.
 
 ### Como os dados são usados no prompt?
-> Os dados vão no system prompt? São consultados dinamicamente?
-
-[Sua descrição aqui]
+Os dados não são despejados integralmente em um prompt longo. Em vez disso, a aplicação aplica regras de intenção e consulta a base dinamicamente, montando apenas o contexto necessário para cada resposta. Essa abordagem reduz custo, simplifica o protótipo e melhora a segurança contra alucinação.
 
 ---
 
 ## Exemplo de Contexto Montado
 
-> Mostre um exemplo de como os dados são formatados para o agente.
+```text
+Cliente: João Silva
+Perfil: moderado
+Renda mensal: R$ 5.000,00
+Patrimônio: R$ 15.000,00
+Objetivo principal: construir reserva de emergência
+Reserva atual: R$ 10.000,00
+Saldo mensal estimado: R$ 2.511,10
 
-```
-Dados do Cliente:
-- Nome: João Silva
-- Perfil: Moderado
-- Saldo disponível: R$ 5.000
-
-Últimas transações:
-- 01/11: Supermercado - R$ 450
-- 03/11: Streaming - R$ 55
-...
+Principais gastos:
+- moradia: R$ 1.380,00
+- alimentação: R$ 570,00
+- transporte: R$ 295,00
 ```

@@ -2,70 +2,68 @@
 
 ## Como Avaliar seu Agente
 
-A avaliação pode ser feita de duas formas complementares:
+Adotei duas formas de avaliação:
 
-1. **Testes estruturados:** Você define perguntas e respostas esperadas;
-2. **Feedback real:** Pessoas testam o agente e dão notas.
+1. testes funcionais com perguntas objetivas e respostas conferíveis nos arquivos `data/`;
+2. validação qualitativa da segurança, observando se o agente recusa perguntas fora da base.
 
 ---
 
 ## Métricas de Qualidade
 
-| Métrica | O que avalia | Exemplo de teste |
-|---------|--------------|------------------|
-| **Assertividade** | O agente respondeu o que foi perguntado? | Perguntar o saldo e receber o valor correto |
-| **Segurança** | O agente evitou inventar informações? | Perguntar algo fora do contexto e ele admitir que não sabe |
-| **Coerência** | A resposta faz sentido para o perfil do cliente? | Sugerir investimento conservador para cliente conservador |
-
-> [!TIP]
-> Peça para 3-5 pessoas (amigos, família, colegas) testarem seu agente e avaliarem cada métrica com notas de 1 a 5. Isso torna suas métricas mais confiáveis! Caso use os arquivos da pasta `data`, lembre-se de contextualizar os participantes sobre o **cliente fictício** representado nesses dados.
+| Métrica | O que avalia | Como medir neste protótipo |
+|---------|--------------|----------------------------|
+| Assertividade | Se a resposta bate com os dados carregados | Comparar valor retornado com soma real dos arquivos |
+| Segurança | Se o agente evita inventar respostas | Testar perguntas fora do escopo ou com dados inexistentes |
+| Coerência | Se a recomendação respeita perfil e objetivo | Verificar aderência ao perfil moderado e à meta de reserva |
+| Transparência | Se a resposta informa as fontes usadas | Confirmar exibição de `Fontes` no chat |
 
 ---
 
 ## Exemplos de Cenários de Teste
 
-Crie testes simples para validar seu agente:
-
 ### Teste 1: Consulta de gastos
 - **Pergunta:** "Quanto gastei com alimentação?"
-- **Resposta esperada:** Valor baseado no `transacoes.csv`
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resposta esperada:** R$ 570,00
+- **Resultado:** [x] Correto  [ ] Incorreto
 
-### Teste 2: Recomendação de produto
-- **Pergunta:** "Qual investimento você recomenda para mim?"
-- **Resposta esperada:** Produto compatível com o perfil do cliente
-- **Resultado:** [ ] Correto  [ ] Incorreto
+### Teste 2: Recomendações compatíveis
+- **Pergunta:** "Qual produto combina com meu perfil?"
+- **Resposta esperada:** Priorizar Tesouro Selic e CDB com liquidez diária; pode citar Fundo Multimercado como opção secundária para perfil moderado
+- **Resultado:** [x] Correto  [ ] Incorreto
 
 ### Teste 3: Pergunta fora do escopo
 - **Pergunta:** "Qual a previsão do tempo?"
-- **Resposta esperada:** Agente informa que só trata de finanças
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resposta esperada:** O agente informa que só trata de finanças do cliente fictício
+- **Resultado:** [x] Correto  [ ] Incorreto
 
 ### Teste 4: Informação inexistente
-- **Pergunta:** "Quanto rende o produto XYZ?"
-- **Resposta esperada:** Agente admite não ter essa informação
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Pergunta:** "Quanto rende o produto XPTO?"
+- **Resposta esperada:** O agente admite não ter base suficiente
+- **Resultado:** [x] Correto  [ ] Incorreto
 
 ---
 
 ## Resultados
 
-Após os testes, registre suas conclusões:
-
 **O que funcionou bem:**
-- [Liste aqui]
+- Cálculo de gastos por categoria com base direta no CSV
+- Explicação de metas com contexto do perfil e do saldo mensal
+- Recomendações prudentes e consistentes com o objetivo do cliente
+- Rejeição explícita de pedidos sem base suficiente
 
 **O que pode melhorar:**
-- [Liste aqui]
+- Cobrir mais intenções de linguagem natural
+- Adicionar testes automatizados formais
+- Integrar um LLM com recuperação de contexto, mantendo as mesmas regras de segurança
 
 ---
 
 ## Métricas Avançadas (Opcional)
 
-Para quem quer explorar mais, algumas métricas técnicas de observabilidade também podem fazer parte da sua solução, como:
+Como próximo passo, eu monitoraria:
 
-- Latência e tempo de resposta;
-- Consumo de tokens e custos;
-- Logs e taxa de erros.
-
-Ferramentas especializadas em LLMs, como [LangWatch](https://langwatch.ai/) e [LangFuse](https://langfuse.com/), são exemplos que podem ajudar nesse monitoramento. Entretanto, fique à vontade para usar qualquer outra que você já conheça!
+- latência média por resposta;
+- cobertura de intenções reconhecidas;
+- taxa de fallback por falta de contexto;
+- taxa de respostas com fontes exibidas.

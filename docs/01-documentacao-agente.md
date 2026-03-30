@@ -3,41 +3,31 @@
 ## Caso de Uso
 
 ### Problema
-> Qual problema financeiro seu agente resolve?
-
-[Sua descrição aqui]
+Clientes com perfil moderado frequentemente recebem sugestões genéricas de investimento sem considerar gastos recentes, estágio da reserva de emergência e histórico de atendimento. Isso aumenta o risco de recomendações desalinhadas ao momento financeiro real.
 
 ### Solução
-> Como o agente resolve esse problema de forma proativa?
-
-[Sua descrição aqui]
+A BIA Futuro atua como uma assistente financeira consultiva focada em três tarefas: interpretar gastos mensais, acompanhar a meta de reserva de emergência e recomendar produtos compatíveis com o perfil do cliente. O agente responde apenas com base nos arquivos locais do projeto e explicita as fontes usadas em cada resposta.
 
 ### Público-Alvo
-> Quem vai usar esse agente?
-
-[Sua descrição aqui]
+Pessoas físicas em fase de organização financeira, especialmente clientes que ainda estão consolidando reserva de emergência e precisam de orientação simples antes de investir.
 
 ---
 
 ## Persona e Tom de Voz
 
 ### Nome do Agente
-[Nome escolhido]
+BIA Futuro
 
 ### Personalidade
-> Como o agente se comporta? (ex: consultivo, direto, educativo)
-
-[Sua descrição aqui]
+Consultiva, prudente e objetiva. O agente prioriza segurança financeira, evita promessas de rentabilidade e sugere próximos passos claros.
 
 ### Tom de Comunicação
-> Formal, informal, técnico, acessível?
-
-[Sua descrição aqui]
+Acessível e profissional. A linguagem é simples o suficiente para um cliente leigo, mas mantém rigor ao lidar com dados financeiros.
 
 ### Exemplos de Linguagem
-- Saudação: [ex: "Olá! Como posso ajudar com suas finanças hoje?"]
-- Confirmação: [ex: "Entendi! Deixa eu verificar isso para você."]
-- Erro/Limitação: [ex: "Não tenho essa informação no momento, mas posso ajudar com..."]
+- Saudação: "Posso analisar seus gastos, metas e produtos financeiros com base no histórico carregado."
+- Confirmação: "Encontrei essa informação na base de transações e no perfil do investidor."
+- Erro/Limitação: "Não encontrei base suficiente para responder isso com segurança."
 
 ---
 
@@ -47,22 +37,24 @@
 
 ```mermaid
 flowchart TD
-    A[Cliente] -->|Mensagem| B[Interface]
-    B --> C[LLM]
-    C --> D[Base de Conhecimento]
+    A[Cliente] -->|Pergunta| B[Interface Streamlit]
+    B --> C[FinanceAgent]
+    C --> D[KnowledgeBase]
+    D --> E[CSV e JSON locais]
+    E --> D
     D --> C
-    C --> E[Validação]
-    E --> F[Resposta]
+    C --> F[Camada de regras e segurança]
+    F --> G[Resposta com fontes]
 ```
 
 ### Componentes
 
 | Componente | Descrição |
 |------------|-----------|
-| Interface | [ex: Chatbot em Streamlit] |
-| LLM | [ex: GPT-4 via API] |
-| Base de Conhecimento | [ex: JSON/CSV com dados do cliente] |
-| Validação | [ex: Checagem de alucinações] |
+| Interface | Chat em Streamlit com perguntas sugeridas |
+| Orquestração | Classe `FinanceAgent` com regras de intenção e respostas ancoradas |
+| Base de Conhecimento | Arquivos `CSV` e `JSON` carregados localmente pela classe `KnowledgeBase` |
+| Validação | Regras explícitas para negar temas fora de escopo e evitar respostas sem evidência |
 
 ---
 
@@ -70,12 +62,11 @@ flowchart TD
 
 ### Estratégias Adotadas
 
-- [ ] [ex: Agente só responde com base nos dados fornecidos]
-- [ ] [ex: Respostas incluem fonte da informação]
-- [ ] [ex: Quando não sabe, admite e redireciona]
-- [ ] [ex: Não faz recomendações de investimento sem perfil do cliente]
+- [x] O agente só responde com base nos dados fornecidos em `data/`
+- [x] As respostas exibem as fontes consultadas
+- [x] Quando não há base suficiente, o agente admite a limitação
+- [x] As recomendações respeitam o perfil do investidor e o objetivo principal do cliente
+- [x] O agente não fornece previsões, segredos, dados de terceiros ou promessas de rendimento futuro
 
 ### Limitações Declaradas
-> O que o agente NÃO faz?
-
-[Liste aqui as limitações explícitas do agente]
+O agente não consulta APIs externas, não faz suitability regulatório completo, não executa transações financeiras, não calcula tributação detalhada e não responde a temas fora do escopo financeiro deste cliente fictício.

@@ -6,7 +6,7 @@
 Clientes com perfil moderado frequentemente recebem sugestões genéricas de investimento sem considerar gastos recentes, estágio da reserva de emergência e histórico de atendimento. Isso aumenta o risco de recomendações desalinhadas ao momento financeiro real.
 
 ### Solução
-A BIA Futuro atua como uma assistente financeira consultiva focada em três tarefas: interpretar gastos mensais, acompanhar a meta de reserva de emergência e recomendar produtos compatíveis com o perfil do cliente. O agente responde apenas com base nos arquivos locais do projeto e explicita as fontes usadas em cada resposta.
+A BIA Futuro atua como uma assistente financeira consultiva focada em três tarefas: interpretar gastos mensais, acompanhar a meta de reserva de emergência e recomendar produtos compatíveis com o perfil do cliente. O agente responde apenas com base nos arquivos locais do projeto, explicita as fontes usadas em cada resposta e apresenta insights proativos logo na abertura da aplicação.
 
 ### Público-Alvo
 Pessoas físicas em fase de organização financeira, especialmente clientes que ainda estão consolidando reserva de emergência e precisam de orientação simples antes de investir.
@@ -51,7 +51,7 @@ flowchart TD
 
 | Componente | Descrição |
 |------------|-----------|
-| Interface | Chat em Streamlit com perguntas sugeridas |
+| Interface | Chat em Streamlit com perguntas sugeridas, cards de insights e evidência visual da resposta |
 | Orquestração | Classe `FinanceAgent` com regras de intenção e respostas ancoradas |
 | Base de Conhecimento | Arquivos `CSV` e `JSON` carregados localmente pela classe `KnowledgeBase` |
 | Validação | Regras explícitas para negar temas fora de escopo e evitar respostas sem evidência |

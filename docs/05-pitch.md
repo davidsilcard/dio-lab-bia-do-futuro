@@ -6,12 +6,12 @@
 Muitos clientes recebem orientação financeira reativa e genérica. Eles perguntam sobre investimento antes mesmo de entender seus gastos, suas metas e o estágio da reserva de emergência. Isso aumenta o risco de decisões ruins e reduz a confiança no atendimento.
 
 ### 2. A Solução (1 min)
-A solução é a BIA Futuro, uma assistente financeira inteligente que cruza histórico de transações, perfil do investidor, metas e catálogo de produtos para responder com segurança. Em vez de improvisar, ela usa apenas a base local do cliente fictício e sempre mostra as fontes da resposta. O foco é orientar primeiro a saúde financeira, depois a escolha de produtos compatíveis.
+A solução é a BIA Futuro, uma assistente financeira inteligente que cruza histórico de transações, perfil do investidor, metas e catálogo de produtos para responder com segurança. Em vez de improvisar, ela usa apenas a base local do cliente fictício, mostra as fontes da resposta, exibe a evidência usada e destaca insights proativos logo na abertura. O foco é orientar primeiro a saúde financeira, depois a escolha de produtos compatíveis.
 
 ### 3. Demonstração (1 min)
 Na demonstração, eu mostraria três fluxos:
 
-1. consulta de gastos com alimentação, provando que o agente calcula valores reais do CSV;
+1. visualização dos insights proativos, mostrando maior foco de gasto, status da reserva e perfil atual do cliente;
 2. acompanhamento da reserva de emergência, mostrando quanto falta para atingir a meta;
 3. recomendação de produto, justificando a sugestão com base no perfil moderado e no objetivo do cliente.
 

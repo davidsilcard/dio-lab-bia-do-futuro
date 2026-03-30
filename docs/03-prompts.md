@@ -14,7 +14,7 @@ Regras:
 5. Não peça nem revele dados sensíveis. Não faça promessas de rentabilidade futura.
 ```
 
-O protótipo atual usa esse prompt como contrato comportamental da aplicação, mesmo operando com respostas determinísticas baseadas em regras.
+O protótipo atual usa esse prompt como contrato comportamental da aplicação, mesmo operando com respostas determinísticas baseadas em regras. Além do texto principal, cada resposta apresenta uma etiqueta visual de evidência e um próximo passo sugerido.
 
 ---
 
@@ -33,6 +33,8 @@ Quanto gastei com alimentação?
 ```text
 No período carregado, você gastou R$ 570,00 com alimentação. Lançamentos considerados: 2025-10-03: Supermercado (R$ 450,00); 2025-10-10: Restaurante (R$ 120,00).
 ```
+
+**Evidência visual exibida na interface:** `Baseado em transações`
 
 ---
 
@@ -65,6 +67,8 @@ Qual produto combina com meu perfil?
 ```text
 Como o perfil é moderado e o objetivo principal é 'Construir reserva de emergência', priorizei produtos de menor risco e boa liquidez. Recomendações: Tesouro Selic: risco baixo, aporte mínimo de R$ 30,00, indicado para reserva de emergência e iniciantes. CDB Liquidez Diária: risco baixo, aporte mínimo de R$ 100,00, indicado para quem busca segurança com rendimento diário.
 ```
+
+**Próximo passo sugerido pela interface:** `Se quiser, posso explicar por que descartei produtos mais arriscados.`
 
 ---
 
@@ -117,3 +121,4 @@ Não encontrei base suficiente para responder isso com segurança. Tente pergunt
 - A escolha por respostas determinísticas simplificou o controle de segurança e aderência aos dados.
 - Separar a leitura dos dados da lógica de resposta deixou o protótipo pronto para futura troca por um LLM com RAG.
 - Exibir as fontes na interface torna a demonstração mais convincente para o desafio.
+- Os insights proativos melhoram a percepção de valor sem abrir mão da segurança baseada em dados locais.

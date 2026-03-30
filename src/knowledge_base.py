@@ -64,6 +64,10 @@ class KnowledgeBase:
             summary[category] = summary.get(category, 0.0) + float(transaction["valor"])
         return dict(sorted(summary.items(), key=lambda item: item[1], reverse=True))
 
+    def top_spending_category(self) -> tuple[str, float]:
+        categories = self.spending_by_category()
+        return next(iter(categories.items()))
+
     def emergency_fund_gap(self) -> float:
         target = 0.0
         for goal in self.profile["metas"]:
@@ -103,8 +107,32 @@ class KnowledgeBase:
         return (
             f"Cliente: {self.profile['nome']} | Perfil: {self.profile['perfil_investidor']} | "
             f"Objetivo: {self.profile['objetivo_principal']} | "
-            f"Patrimônio: {format_brl(float(self.profile['patrimonio_total']))} | "
+            f"Patrimonio: {format_brl(float(self.profile['patrimonio_total']))} | "
             f"Reserva atual: {format_brl(float(self.profile['reserva_emergencia_atual']))} | "
             f"Saldo mensal estimado: {format_brl(self.monthly_balance())} | "
             f"Principais gastos: {top_categories}"
         )
+
+    def proactive_insights(self) -> list[dict[str, str]]:
+        top_category, top_value = self.top_spending_category()
+        gap = self.emergency_fund_gap()
+        profile = self.profile["perfil_investidor"]
+        risk_acceptance = "nao aceita risco" if not self.profile["aceita_risco"] else "aceita algum risco"
+
+        return [
+            {
+                "title": "Maior foco de gasto",
+                "value": f"{top_category}: {format_brl(top_value)}",
+                "detail": "Insight derivado do historico de transacoes do periodo.",
+            },
+            {
+                "title": "Reserva de emergencia",
+                "value": format_brl(gap) if gap else "Meta concluida",
+                "detail": "Valor restante para atingir a meta registrada no perfil.",
+            },
+            {
+                "title": "Perfil atual",
+                "value": f"{profile} | {risk_acceptance}",
+                "detail": "Base para recomendacoes prudentes e aderentes.",
+            },
+        ]

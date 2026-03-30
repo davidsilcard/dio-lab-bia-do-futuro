@@ -8,6 +8,8 @@ Protótipo de assistente financeiro para o desafio `dio-lab-bia-do-futuro`, com 
 - acompanha a meta de reserva de emergência com base em `data/perfil_investidor.json`;
 - recupera contexto de atendimentos anteriores;
 - recomenda produtos aderentes ao perfil e ao objetivo principal do cliente;
+- exibe insights proativos logo na abertura da aplicação;
+- mostra evidência da resposta e próximo passo sugerido no chat;
 - recusa perguntas sem base suficiente ou fora do escopo financeiro.
 
 ## Estrutura
